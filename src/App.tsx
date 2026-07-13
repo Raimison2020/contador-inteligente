@@ -1,3 +1,5 @@
+import { Counter } from "./components/Counter";
+
 export function App(){
-  return <h1>Contador Inteligente</h1>
+  return <Counter />
 }
