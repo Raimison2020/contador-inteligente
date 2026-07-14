@@ -1,13 +1,22 @@
 import styled from "styled-components";
 
-export const Container= styled.main`
-  width: 400px;
-  margin: 80px auto;
-  padding: 2rem;
+export const Container = styled.main`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  border-radius: 12px;
+  gap: 1rem;
 
-  background: #f5f5f5;
+  background: #221f1f;
+
+  color: #fff;
 
   text-align: center;
-`
+`;
+
+export const ButtonGroup = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
