@@ -15,8 +15,3 @@ export const Container = styled.main`
 
   text-align: center;
 `;
-
-export const ButtonGroup = styled.div`
-  display: flex;
-  gap: 1rem;
-`;

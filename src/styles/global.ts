@@ -9,10 +9,10 @@ export const GlobalStyle = createGlobalStyle`
 
   body{
     font-family: Arial, Helvetica, sans-serif;
-    background: #181819;
+    background: #121215;
   }
 
   button{
     cursor:pointer;
   }
-`
+`;

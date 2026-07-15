@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import * as S from "./styles";
+import { Display } from "../Display";
+import { Controls } from "../Controls";
 
 export function Counter() {
   console.log("Renderizou");
@@ -26,6 +28,19 @@ export function Counter() {
     };
   }, []);
 
+  // Functions
+  function incrementar() {
+    setContador((valorAnterior) => valorAnterior + 1);
+  }
+
+  function diminuir() {
+    setContador((valorAnterior) => valorAnterior - 1);
+  }
+
+  function resetar() {
+    setContador(0);
+  }
+
   return (
     <S.Container>
       <h1>Contador Inteligente</h1>
@@ -38,21 +53,13 @@ export function Counter() {
         onChange={(e) => setNome(e.target.value)}
       />
 
-      <p>Valor: {contador}</p>
+      <Display valor={contador} />
 
-      <S.ButtonGroup>
-        <button
-          onClick={() => setContador((valorAnterior) => valorAnterior + 1)}
-        >
-          Incrmentar
-        </button>
-        <button
-          onClick={() => setContador((valorAnterior) => valorAnterior - 1)}
-        >
-          Diminuir
-        </button>
-        <button onClick={() => setContador(0)}>Reset</button>
-      </S.ButtonGroup>
+      <Controls
+        onIncrement={incrementar}
+        onDecrement={diminuir}
+        onReset={resetar}
+      />
 
       <p>Tempo na página: {tempo} - Segundos</p>
     </S.Container>
