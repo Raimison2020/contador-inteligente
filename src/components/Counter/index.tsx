@@ -5,17 +5,17 @@ import { Controls } from "../Controls";
 import { Timer } from "../Timer";
 
 function obterMensagem(contador: number): string {
-  switch (contador) {
-    case 10:
-      return "🎉 Parabéns! Você chegou a 10!";
-    case 20:
-      return "🚀 Excelente! Continue assim!";
-    case 50:
-      return "🏆 Impressionante! Você chegou a 50!";
-
-    default:
-      return "";
+  if (contador >= 0 && contador <= 9) {
+    return "🙂 Iniciante";
+  } else if (contador >= 10 && contador <= 19) {
+    return "🎉 Bom trabalho";
+  } else if (contador >= 20 && contador <= 49) {
+    return "🚀 Excelente";
+  } else if (contador >= 50) {
+    return "🏆 Mestre";
   }
+
+  return "Valor inválido.";
 }
 
 export function Counter() {
