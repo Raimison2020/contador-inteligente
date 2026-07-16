@@ -7,12 +7,11 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing:border-box;
   }
 
-  body{
+  body {
     font-family: Arial, Helvetica, sans-serif;
-    background: #121215;
   }
 
-  button{
+  button {
     cursor:pointer;
   }
 `;

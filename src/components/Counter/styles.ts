@@ -9,9 +9,5 @@ export const Container = styled.main`
 
   gap: 1rem;
 
-  background: #221f1f;
-
-  color: #fff;
-
   text-align: center;
 `;

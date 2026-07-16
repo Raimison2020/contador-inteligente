@@ -3,6 +3,7 @@ import * as S from "./styles";
 import { Display } from "../Display";
 import { Controls } from "../Controls";
 import { Timer } from "../Timer";
+import { Card } from "../Card";
 
 function obterMensagem(contador: number): string {
   if (contador >= 0 && contador <= 9) {
@@ -60,7 +61,11 @@ export function Counter() {
       <Display valor={contador} />
 
       {/* Renderização condicional */}
-      {mensagem && <h3>{mensagem}</h3>}
+      {mensagem && (
+        <Card>
+          <h3>{mensagem}</h3>
+        </Card>
+      )}
 
       <Controls
         onIncrement={incrementar}
