@@ -2,31 +2,19 @@ import { useEffect, useState } from "react";
 import * as S from "./styles";
 import { Display } from "../Display";
 import { Controls } from "../Controls";
+import { Timer } from "../Timer";
 
 export function Counter() {
   console.log("Renderizou");
 
   const [contador, setContador] = useState(0);
   const [nome, setNome] = useState("");
-  const [tempo, setTempo] = useState(0);
 
   useEffect(() => {
     console.log("Executou o useEffect");
 
     document.title = `Contador: ${contador}`;
-  }, [contador, nome]);
-
-  useEffect(() => {
-    console.log("Criando intervalo");
-    const intervalo = setInterval(() => {
-      setTempo((tempoAnterior) => tempoAnterior + 1);
-    }, 1000);
-
-    return () => {
-      console.log("Limpando intervalo");
-      clearInterval(intervalo);
-    };
-  }, []);
+  }, [contador]);
 
   // Functions
   function incrementar() {
@@ -61,7 +49,7 @@ export function Counter() {
         onReset={resetar}
       />
 
-      <p>Tempo na página: {tempo} - Segundos</p>
+      <Timer />
     </S.Container>
   );
 }
