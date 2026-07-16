@@ -4,6 +4,20 @@ import { Display } from "../Display";
 import { Controls } from "../Controls";
 import { Timer } from "../Timer";
 
+function obterMensagem(contador: number): string {
+  switch (contador) {
+    case 10:
+      return "🎉 Parabéns! Você chegou a 10!";
+    case 20:
+      return "🚀 Excelente! Continue assim!";
+    case 50:
+      return "🏆 Impressionante! Você chegou a 50!";
+
+    default:
+      return "";
+  }
+}
+
 export function Counter() {
   console.log("Renderizou");
 
@@ -29,6 +43,8 @@ export function Counter() {
     setContador(0);
   }
 
+  const mensagem = obterMensagem(contador);
+
   return (
     <S.Container>
       <h1>Contador Inteligente</h1>
@@ -42,6 +58,9 @@ export function Counter() {
       />
 
       <Display valor={contador} />
+
+      {/* Renderização condicional */}
+      {mensagem && <h3>{mensagem}</h3>}
 
       <Controls
         onIncrement={incrementar}
