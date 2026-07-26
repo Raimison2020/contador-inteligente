@@ -6,7 +6,9 @@ import { Timer } from "../Timer";
 import { Card } from "../Card";
 
 function obterMensagem(contador: number): string {
-  if (contador >= 0 && contador <= 9) {
+  if (contador == 0) {
+    return "";
+  } else if (contador <= 9) {
     return "🙂 Iniciante";
   } else if (contador >= 10 && contador <= 19) {
     return "🎉 Bom trabalho";
@@ -21,9 +23,21 @@ function obterMensagem(contador: number): string {
 
 export function Counter() {
   console.log("Renderizou");
-
-  const [contador, setContador] = useState(0);
   const [nome, setNome] = useState("");
+
+  const [contador, setContador] = useState(() => {
+    const contadorSalvo = localStorage.getItem("contador");
+
+    if (contadorSalvo !== null) {
+      return Number(contadorSalvo);
+    }
+
+    return 0;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("contador", String(contador));
+  }, [contador]);
 
   useEffect(() => {
     console.log("Executou o useEffect");
@@ -37,7 +51,13 @@ export function Counter() {
   }
 
   function diminuir() {
-    setContador((valorAnterior) => valorAnterior - 1);
+    setContador((valorAnterior) => {
+      if (valorAnterior > 0) {
+        return valorAnterior - 1;
+      }
+
+      return 0;
+    });
   }
 
   function resetar() {
